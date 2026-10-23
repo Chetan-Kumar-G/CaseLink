@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    background-image:
+      radial-gradient(1200px 600px at 100% -10%, rgba(255, 175, 110, 0.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(255, 208, 166, 0.22), transparent 60%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    @apply bg-ember-200 text-ink;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-ember-400 ring-offset-2 ring-offset-paper;
+  }
+  [lang='hi'],
+  .font-hi {
+    font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl2 border border-paper-line bg-white/90 shadow-card backdrop-blur-sm;
+  }
+  .input {
+    @apply w-full rounded-xl border border-paper-line bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-faint transition focus:border-ember-400 focus:shadow-glow focus:outline-none disabled:bg-paper-soft disabled:text-ink-muted;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-ink-muted;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+  .link {
+    @apply font-semibold text-ember-700 underline-offset-4 hover:underline;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-x {
+    @apply overflow-x-auto overscroll-x-contain;
+    scrollbar-width: thin;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

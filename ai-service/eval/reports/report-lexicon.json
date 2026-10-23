@@ -1,0 +1,90 @@
+{
+  "engine": {
+    "mode": "lexicon",
+    "model": "bilingual-concept-tfidf",
+    "threshold": 0.3
+  },
+  "generated": "2026-10-23 19:16",
+  "dataset": {
+    "cases": 501,
+    "institutions": 48,
+    "pairs": 2543,
+    "related_pairs": 573,
+    "languages": {
+      "hi": 129,
+      "en": 311,
+      "mix": 61
+    }
+  },
+  "overlap": {
+    "layers": {
+      "exact": {
+        "precision": 1.0,
+        "recall": 0.045,
+        "f1": 0.087,
+        "tp": 26,
+        "fp": 0,
+        "fn": 547
+      },
+      "rule": {
+        "precision": 0.854,
+        "recall": 1.0,
+        "f1": 0.921,
+        "tp": 573,
+        "fp": 98,
+        "fn": 0
+      },
+      "semantic": {
+        "precision": 0.873,
+        "recall": 0.913,
+        "f1": 0.892,
+        "tp": 523,
+        "fp": 76,
+        "fn": 50
+      },
+      "combined": {
+        "precision": 0.793,
+        "recall": 1.0,
+        "f1": 0.884,
+        "tp": 573,
+        "fp": 150,
+        "fn": 0
+      }
+    },
+    "semantic_recall_by_language_pair": {
+      "en-en": 0.938,
+      "en-hi": 0.862,
+      "en-mix": 0.875,
+      "hi-hi": 1.0,
+      "hi-mix": 1.0,
+      "mix-mix": 1.0
+    },
+    "semantic_recall_at_5": 0.994
+  },
+  "closure": {
+    "pairs": 160,
+    "main_concern_accuracy": 0.969,
+    "concern_missed": 0,
+    "accuracy_by_response_type": {
+      "full": 1.0,
+      "ignore": 1.0,
+      "no_evidence": 1.0,
+      "promise": 0.861
+    },
+    "gap_detection": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 124,
+      "fp": 0,
+      "fn": 0
+    },
+    "confusion": {
+      "addressed -> addressed": 36,
+      "not_addressed -> not_addressed": 49,
+      "partial -> not_addressed": 5,
+      "partial -> partial": 70
+    }
+  },
+  "runtime_s": 0.1
+}

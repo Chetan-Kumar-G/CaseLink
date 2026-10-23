@@ -1,0 +1,14 @@
+# Keep uploads small: local databases, virtualenvs, build output and tests
+# are never needed by the Vercel build.
+**/node_modules
+**/.venv
+**/__pycache__
+**/.pytest_cache
+backend/.data
+backend/test
+frontend/dist
+ai-service/tests
+ai-service/eval
+.github
+.claude
+**/.env

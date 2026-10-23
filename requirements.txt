@@ -1,0 +1,6 @@
+# Python dependencies for the Vercel serverless AI function (api/ai.py).
+# Lightweight on purpose: the lexicon engine is pure Python.
+# For local development use ai-service/requirements.txt.
+fastapi>=0.115,<1
+pydantic>=2.9,<3
+python-dotenv>=1.0,<2

@@ -1,0 +1,4 @@
+# Optional: multilingual sentence embeddings (recommended for the demo).
+# Downloads PyTorch (~200 MB CPU build) and the model (~470 MB) on first run.
+-r requirements.txt
+sentence-transformers>=3.2,<6
