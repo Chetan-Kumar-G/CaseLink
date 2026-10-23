@@ -28,7 +28,10 @@ async function waitForAi(maxSeconds = 25) {
 export async function seedDatabase({ waitForAiSeconds = 25, log = console.log } = {}) {
   if (env.isProd && !env.demoMode) throw new Error('Refusing to seed (drops the database) in production; set DEMO_MODE=true for a demo deployment');
   log('[seed] resetting database with synthetic data…');
-  await mongoose.connection.db.dropDatabase();
+  // Drop each collection rather than the database: a least-privilege database
+  // user (readWrite, e.g. on MongoDB Atlas) may not drop whole databases.
+  const collections = await mongoose.connection.db.listCollections({}, { nameOnly: true }).toArray();
+  await Promise.all(collections.filter((c) => !c.name.startsWith('system.')).map((c) => mongoose.connection.db.dropCollection(c.name)));
   const { Notification } = await import('../models/Notification.js');
   const { LedgerEntry } = await import('../models/LedgerEntry.js');
   await Promise.all([User, Institution, Case, OverlapLink, Notification, LedgerEntry].map((m) => m.syncIndexes()));
