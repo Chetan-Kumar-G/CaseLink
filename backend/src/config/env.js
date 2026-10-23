@@ -19,7 +19,8 @@ const bool = (def) =>
 const vercelUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : null;
 
 const schema = z.object({
-  NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
+  // Vercel deployments are production unless told otherwise.
+  NODE_ENV: z.enum(['development', 'production', 'test']).default(process.env.VERCEL ? 'production' : 'development'),
   PORT: z.coerce.number().int().min(1).max(65535).default(4000),
   MONGO_URI: z.string().trim().optional().default(''),
   DEV_DB_PATH: z.string().trim().default('.data/db'),

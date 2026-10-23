@@ -234,7 +234,7 @@ Everything is configured in `vercel.json`. The web app, the API and the AI servi
 
 | Variable | Required | Value |
 |---|---|---|
-| `NODE_ENV` | yes | `production` |
+| `NODE_ENV` | no | not needed: Vercel deployments run as `production` automatically |
 | `MONGO_URI` | yes | the Atlas connection string |
 | `JWT_SECRET` | yes | ≥ 32 random characters |
 | `IDENTITY_PEPPER` | yes | ≥ 32 random characters. **Never change it after go-live**: duplicate-complainant matching depends on it |
